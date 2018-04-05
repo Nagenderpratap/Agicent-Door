@@ -1,0 +1,49 @@
+  
+ .part1{
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-top: 7%;
+}
+@media  only screen and (max-width: 768px) {
+    .part1{
+    padding-right: 5%;
+  padding-left: 5%;
+  
+    }
+}
+h1{
+    color: #183466;
+    font-size: 35px;
+    letter-spacing: 1px;
+    font-family: 'Rubik' sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+  h2{
+    color: #183466;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Rubik' sans-serif;
+   
+    text-align: center;
+}
+ .logo1{
+  width: 13.5%;
+}
+@media  only screen and (max-width: 768px) {
+ .logo1{
+  width: 16%;
+}
+}
+.section1{
+    padding-top: 4%;
+    padding-left: 2%;
+  }  
+  @media  only screen and (max-width: 768px) and (min-width: 300px)  {
+ .section1{
+    padding-top: 15%;
+  } 
+}
+.top-1{
+    padding: 0px;
+}

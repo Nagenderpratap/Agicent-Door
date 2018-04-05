@@ -1,0 +1,781 @@
+<meta http-equiv="pragma" content="no-cache" />
+<div class="container-fluid" style="background-color: white">
+
+  <div class="header">
+    <div class="logo_company">
+      <div class="col-xs-6 col-sm-6 col-md-6 top-1">
+        <div class="section1-img">
+          <img src="assets/logo.png" class="logo_founder" (click)="backToHome()">
+        </div>
+      </div>
+    </div>
+    <div class="section_1 ">
+      <div class="row">
+          <button class="startup_button button.raised"  data-toggle="modal" data-target="#exampleModal5">Join Existing Startup</button>
+          <!-- <button class="startup_button2 button.raised" >Join Existing Organization</button> -->
+   
+      </div>
+      <br>
+      <!-- <div class="col-xs-6 col-sm-6 col-md-12 top-1"> -->
+      <h2 class="text-center font-bold pt-4 pb-5 ">
+        <strong class="heading">Founder Registration </strong>
+      </h2>
+      <div class="icons">
+        <div class="steps-form-2">
+
+          <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+            <div class="steps-step-2">
+              <a href="#step-4" type="button" class="step-5  not-active btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip"
+                data-placement="top" title="About You"></a>
+              <h6> About You</h6>
+            </div>
+            <!-- <div class="steps-step-2">
+            <a href="#step-5" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Personal Data"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        </div> -->
+            <div class="steps-step-2">
+              <a href="#step-6" class="not-active" type="button" class="step-6 not-active btn-circle-2 waves-effect" data-toggle="tooltip"
+                data-placement="top" title="Your Startup"></a>
+              <h6> Your Startup</h6>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <form>
+        <div class="row setup-content-2" id="step-4">
+          <div class="col-md-12">
+            <div class="row IMG-ROW">
+              <div class="col-sm-12 col-md-6"></div>
+              <div class="col-sm-12 col-md-6">
+
+
+
+                <div class="user-dummy">
+
+
+                  <div class="file-field">
+                    <!-- <div class="mb-4">
+                      <img [src]="heroImageUrl" width="100px" (click)="onclick()" height="100px" class="rounded-circle z-depth-1-half avatar-pic">
+                      <input type="file" [src]="imageSrc" id="fileInput" (change)="readUrl($event)" accept="image/*" style="display: none">
+                    </div> -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <img id="picHero" type="file" [src]="" class="hero_button">
+              <!-- <img type="file" [src]="heroImageUrl" class="hero_button"> -->
+              <input type="file" [src]="imageSrc" id="fileInput" (change)="readUrl($event)" accept="image/*" style="display: none">
+              <h5 id="logo_hint" data-toggle="modal" data-target="#exampleModal">+ Add Hero image</h5>
+
+              <img type="file" [src]="heroImageUrl2" id="picLogo" class="rounded-circle z-depth-1-half avatar-pic  user_logo " data-toggle="modal"
+                data-target="#exampleModal2">
+              <input type="file" [src]="imageSrc2" id="fileInput2" (change)="readUrl2($event)" accept="image/*" style="display: none">
+
+              <div class="card_part2" style="padding: 4% 10% 10% 10%">
+                <h3 class="font-bold pl-0 my-4">
+                  <strong class="heading">About You</strong>
+                </h3>
+                <div class="row">
+                  <div class="col-sm-12 ">
+
+                    <div class="form-group">
+                      <label class="label">Username*</label>
+                      <input id="username" autocomplete="off" placeholder="thedoor.co/username" (blur)="check_username()" type="text" [(ngModel)]="username" name="username" class="form-control"
+                        required>
+
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Title*</label>
+                      <input id="title" placeholder="Founder & CEO" [(ngModel)]="title" name="title" type="text" required="required" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group" style="margin-bottom: 10px">
+                      <label class="label">Bio*</label>
+                      <!-- <input id="yourUsername-2" placeholder="Introduce yourself in 160 characters or less." type="textarea" required="required" class="form-control validate"
+                      length="120">  -->
+
+                      <textarea #text (keyup)="field = text.value" type="text" [(ngModel)]="bio" name="bio" name="field" maxlength="160" style="padding:1.0rem 0;color: #4b4f58; "
+                        placeholder="Introduce yourself in 160 characters or less. Example: 2x founder. Dreamer & Doers. Passionate about XYZ. Former Company1er. Uni alum. Etc." id="bio" class="md-textarea" required></textarea>
+
+                      <label id="countdown"> {{field | countdown:160}} characters remaining</label>
+
+
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-12 ">
+
+                    <div class="form-group">
+                      <div class="demo">
+                        <label class="label">Location*</label>
+                        <!-- <input id="yourUsername-2" placeholder="" type="text" required="required" class="form-control validate"> -->
+                        <ng4geo-autocomplete [userSettings]="userSettings"  (componentCallback)="autoCompleteCallback2($event)" style=" padding:0px"></ng4geo-autocomplete>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Twitter Link</label>
+                      <input id="twitter" placeholder="@username" [(ngModel)]="twitter" name="twitter" type="text" required="required" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Linkedin Link</label>
+                      <input id="linkedin" placeholder="linkedin.com/in/link" [(ngModel)]="linkedin" name="linkedin" type="text" required="required"
+                        class="form-control">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Can Help With*</label>
+                      <br>
+                      <label class="label2">Add up to 3 items you can help other founders withs</label>
+                      <div id="tag1">
+                        <!-- <tag-input placeholder="Add another " secondaryPlaceholder="" [(ngModel)]="can_help" name="can_help" [maxItems]="3">
+                          <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteObservable]="requestAutocompleteItemsFake1">
+                          </tag-input-dropdown>
+
+                        </tag-input> -->
+                        <angular2-multiselect [data]="dropdownList_canHelp" [(ngModel)]="selectedItems_canHelp" name="selectedItems_canHelp" [settings]="dropdownSettings_canHelp"
+                           (onSelectAll)="onSelectAll_can($event)"
+                            (onDeSelectAll)="onDeSelectAll_can($event)"           
+                            (onOpen)="onOpen($event)">
+                        </angular2-multiselect>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Need Help With*</label>
+                      <br>
+                      <label class="label2">Add up to 3 items other founders could help you with</label>
+                      <div id="tag2">
+                        <!-- <tag-input placeholder="Add another " secondaryPlaceholder="" [(ngModel)]="need_help" name="need_help" [maxItems]="3">
+                          <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteObservable]="requestAutocompleteItemsFake2">
+
+                          </tag-input-dropdown>
+
+                        </tag-input> -->
+                        <angular2-multiselect [data]="dropdownList_needHelp" [(ngModel)]="selectedItems_needHelp" name="selectedItems_needHelp" [settings]="dropdownSettings_needHelp"
+                       
+                       (onSelectAll)="onSelectAll_need($event)"
+                       (onDeSelectAll)="onDeSelectAll_need($event)"
+                        (onOpen)="onOpen2($event)">
+                        </angular2-multiselect>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Race/Ethnicity</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="ethnicity_item" name="ethnicity_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let ethnicity of ethnicities" [value]="ethnicity.value">
+                              {{ ethnicity.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Gender Identity</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="gender_item" name="gender_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                              {{ gender.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Do you identify as LGBTQIA?*</label>
+                      <div class="example-container lgbt_1">
+
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="LGBT_item" name="LGBT_item" id="lgbt">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let LGBT of LGBTS" [value]="LGBT.value">
+                              {{ LGBT.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Age</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="age_item" name="age_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let age of ages" [value]="age.value">
+                              {{ age.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 ">
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" id="part1-next" (click)="part1_next()" type="button">Next</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row setup-content-2" id="step-6">
+
+          <div class="col-md-12">
+            <div class="row IMG-ROW">
+              <div class="col-sm-12"></div>
+              <div class="col-sm-12 ">
+
+
+
+                <div class="user-dummy">
+
+
+                  <div class="file-field">
+                    <div class="mb-4">
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="card">
+
+              <img id="picHero2" type="file" [src]="" class="hero_button2">
+              <!-- <img type="file" [src]="heroImageUrl4" class="hero_button2"> -->
+              <input type="file" [src]="imageSrc4" id="fileInput4" (change)="readUrl4($event)" accept="image/*" style="display: none">
+              <h5 id="logo_hint" data-toggle="modal" data-target="#exampleModal3">+ Add Hero image</h5>
+
+              <img type="file" [src]="heroImageUrl3" id="picLogo2" class="rounded-circle z-depth-1-half avatar-pic  user_logo " data-toggle="modal"
+                data-target="#exampleModal4">
+              <!-- <img [src]="heroImageUrl3" (click)="onclick3()" class="rounded-circle z-depth-1-half avatar-pic user_logo "> -->
+              <input type="file" [src]="imageSrc3" id="fileInput3" (change)="readUrl3($event)" accept="image/*" style="display: none">
+
+              <div class="card_part2" style="padding: 4% 10% 10% 10%">
+                <div class="row">
+                  <div class="col-sm-8 col-md-6  hd_strt">
+                    <h3 class="font-bold pl-0 my-4 your_head">
+                      <strong class="heading">Your Startup</strong>
+                    </h3>
+                  </div>
+                  <div class="col-sm-4 col-md-6 logo_resp">
+
+
+                  </div>
+                </div>
+
+
+
+                <div class="row">
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Startup Name*</label>
+                      <input id="startup" [(ngModel)]="startupname"  name="startupname" placeholder="Company name" type="text" required="required"
+                        class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Choose a startup profile name*</label>
+                      <input id="startup_profile" autocomplete="off" [(ngModel)]="profilename" (blur)="check_startupName()" name="profilename" placeholder="thedoor.co/company" type="text" required="required"
+                        class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Company url*</label>
+                      <input id="comp_url" placeholder="thedoor.co" [(ngModel)]="url" name="url" type="text" required="required" class="form-control">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 ">
+
+                    <div class="form-group">
+                      <label class="label">Describe your company*</label>
+                      <input id="desc_cmp" placeholder="Up to 2 sentences" [(ngModel)]="aboutC" name="aboutC" type="text" required="required" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="demo2">
+                        <label class="label">Where is the company located?*</label>
+
+                        <!-- <input id="yourUsername-2" placeholder="" type="text" required="required" class="form-control validate"> -->
+                        <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"  style=" padding:0px;"></ng4geo-autocomplete>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Which sector best describes your startup?*</label>
+                      <div class="example-container bst_sector">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="sector_item" name="sector_item" id="sector">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let sector of sectors" [value]="sector.value">
+                              {{ sector.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">How many people are on your team?*</label>
+                      <div class="example-container people_team">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="team_item" name="team_item" id="people">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let team of teams" [value]="team.value">
+                              {{ team.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Which stage are you in?*</label>
+                      <div class="example-container stage_company">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="stage_item" name="stage_item" id="stage_cmp">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let stage of stages" [value]="stage.value">
+                              {{ stage.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">When was the company founded?</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="year_item" name="year_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let year of years_new" [value]="year.value">
+                              {{ year.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">How much have you raised to date?</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="are_raised_item" name="are_raised_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let are_raise of are_raised" [value]="are_raise.value">
+                              {{ are_raise.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">How much are you looking to raise?*</label>
+                      <div class="example-container much_raising">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="have_raised_item" name="have_raised_item" id="look_raising">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let have_raise of are_raised" [value]="have_raise.value">
+                              {{ have_raise.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+                <div class="row">
+
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label class="label">Select the funding round*</label>
+                      <div class="example-container fund">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="round_item1" name="round_item1" id="fund_round">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let round1 of rounds1" [value]="round1.value">
+                              {{ round1.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                    <!-- <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Revenue Range</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="revenue_range_item" name="revenue_range_item" id="revenue-renge">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                             <mat-option *ngFor="let traction of tractions" [value]="traction.value">
+                              {{ traction.viewValue }}
+                            </mat-option> 
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>  -->
+
+                </div>
+
+
+                
+               
+
+                <div class="row">
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Type</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="comp_type_item" name="comp_type_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let comp_type of comp_types" [value]="comp_type.value">
+                              {{ comp_type.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                  <!-- <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Traction Range</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="traction_item" name="traction_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let traction of tractions" [value]="traction.value">
+                              {{ traction.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div> -->
+                  
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Monthly Revenue Range</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="revenue_range_item" name="revenue_range_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let traction of tractions" [value]="traction.value">
+                              {{ traction.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Past Investors</label>
+                      <input  auto-complete  id="yourUsername-2" [(ngModel)]="past" [source]="pastInvestors_api" max-num-list="4" name="past" autocomplete="off" placeholder="Enter your past investors here"
+                        type="text"  class="form-control">
+
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label class="label">Founder's years of experience related to the startup</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="experience_item" name="experience_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let experience of experiences" [value]="experience.value">
+                              {{ experience.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Does the company have a patent(s)?</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="patent_item" name="patent_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let patent of patents" [value]="patent.value">
+                              {{ patent.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Defensibility</label>
+                      <input id="yourUsername-2" [(ngModel)]="defense" name="defense" placeholder="Other/Patent/IP....Up to 3 sentences" type="text"
+                        required="required" class="form-control">
+                    </div>
+                  </div>
+
+                </div>
+
+
+
+                <div class="row" style="margin-top: 20px">
+                  <div class="col-sm-12 col-md-6 ">
+                    <!-- <button class=" btn btn-mdb-color btn-rounded prevBtn-2 float-left prev" id="part2-prev" type="button">Previous</button> -->
+                    <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" id="part2-prev" type="button">Previous</button>
+
+                  </div>
+                  <div class="col-sm-12 col-md-6 ">
+                    <!-- <button class=" btn btn-mdb-color btn-rounded nextBtn-2 float-right next" (click)="part2_next()" id="part2-next" type="button">Next</button> -->
+                    <button class="btn btn-success btn-rounded float-right" (click)="submit()" id="part2-next" type="submit">Submit</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </form>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <img-cropper #cropper [image]="data" [settings]="cropperSettings" (change)="setImage($event)"></img-cropper>
+        <br>
+        <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="set_hero_image()">Save Changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal2 -->
+<div class="modal fade" id="exampleModal2" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <img-cropper #cropper2 [image]="data2" class="rounded-circle" [settings]="cropperSettings2" (change)="setImage2($event)"></img-cropper>
+        <br>
+
+        <img class="rounded-circle" [src]="data2.image" [width]="cropperSettings2.croppedWidth" [height]="cropperSettings2.croppedHeight">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="set_logo_image()">Save Changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal3 -->
+<div class="modal fade" id="exampleModal3" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <img-cropper #cropper3 [image]="data3" class="rounded-circle" [settings]="cropperSettings" (change)="setImage3($event)"></img-cropper>
+        <br>
+
+        <img [src]="data3.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="set_hero_image2()">Save Changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal4 -->
+<div class="modal fade" id="exampleModal4" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <img-cropper #cropper4 [image]="data4" class="rounded-circle" [settings]="cropperSettings2" (change)="setImage4($event)"></img-cropper>
+        <br>
+
+        <img class="rounded-circle" [src]="data4.image" [width]="cropperSettings2.croppedWidth" [height]="cropperSettings2.croppedHeight">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="set_logo_image2()">Save Changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal5 -->
+<div class="modal" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Join Existing Startup</h4>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+ <span aria-hidden="true">&times;</span>
+ </button> 
+      </div>
+<form #popForm="ngForm"  >
+      <div class="modal-body">
+        <input auto-complete [(ngModel)]="existing_startup" [source]="exitStartup_api" max-num-list="4"
+          id="investment" name="existing_startup" placeholder="Please enter Startup name here" type="text" class="form-control"
+          required="true">
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" (click)="nonAngelInvestor()" class="btn btn-secondary" data-dismiss="modal">No</button> -->
+        <button type="button" (click)="joinStartup()" [disabled]="!popForm.form.valid" class="btn btn-primary " data-dismiss="modal">Join</button>
+      </div>
+</form>
+    </div>
+  </div>
+</div>
+<ngx-loading [show]="loading" [config]="{
+        backdropBackgroundColour: 'rgba(rgba(75, 255, 200, 0.3))', fullScreenBackdrop: true, backdropBorderRadius: '10px',
+        primaryColour: '#4bffc8', secondaryColour: '#4bffc8', tertiaryColour: '#4bffc8' }"></ngx-loading>
+   

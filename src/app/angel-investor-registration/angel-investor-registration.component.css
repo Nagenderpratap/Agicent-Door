@@ -1,0 +1,348 @@
+ .logo_investor{
+  width: 14%;
+  cursor: pointer;
+  
+}
+@media  only screen and (max-width: 768px) {
+ .logo_investor{
+  width: 40%;
+}}
+.logo_company{
+  margin-top: 50px;
+  margin-left: 15px;
+}
+
+@media  only screen and (max-width: 768px) {
+  .logo_company{
+  margin-top: 50px;
+  margin-left: 0px;
+}
+}
+ .section_1{
+              padding: 0px 25% 240px 25%;
+            }
+             @media  only screen and (max-width: 768px) {
+    .section_1{
+              padding: 10px 0px 130px 0px;
+            }
+}
+    
+.label{
+    padding: 0px;
+    margin: 3% 0% 0% 0%;
+  }    
+  .form-control{
+    padding-top: 0px;
+  
+  }      
+
+  
+  .IMG-ROW{
+    margin-top: 5%;
+  }
+  .user-dummy{
+    float: right
+  }
+   @media  only screen and (max-width: 768px) {
+  .user-dummy{
+    float: none;
+  }
+}
+.user-img{
+    float: right
+  }
+   @media  only screen and (max-width: 768px) {
+  .user-img{
+    float: none;
+  }
+}
+.heading{
+  color: #184366;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 5%;
+}
+h6{
+  color: #184366; 
+   font-family: 'Rubik', sans-serif;
+}
+  
+.button-included[_ngcontent-c11] input[_ngcontent-c11] {
+    padding-right: 0px;}
+
+    .demo #search_places
+     {
+    background-image: none;
+    padding: 0px;
+   border-top: 2px;
+   border-left: 2px;
+   border-right: 2px;
+
+ 
+     
+  }
+  .search-icon[_ngcontent-c9] {
+  
+  
+}
+  label{
+         font-family: 'Open Sans', sans-serif;
+         font-weight: 500;
+         
+  }
+  .label2{
+    font-size: 12px;
+             font-weight: 500;
+                      font-family: 'Open Sans', sans-serif;
+
+
+  }      
+                 
+   .example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}                 
+
+[type=reset], [type=submit], button, html [type=button] {
+  -webkit-appearance: none;
+}
+.not-active {
+ pointer-events: none;
+ cursor: default;
+}
+.icons{
+  padding-left: 0%;
+  padding-right: 0%;
+}
+ @media  only screen and (max-width: 768px) {
+  .icons{
+  padding-left: 0%;
+  padding-right: 0%;
+}
+}
+.hero_button{
+
+  background-color: #4bffc8;
+  height: 170px;
+  border: none;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+@media  only screen and (max-width: 768px) {
+ .hero_button{
+
+ 
+  height: 135px;
+
+}
+}
+.user_logo{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 121px;
+  align-self: center;
+  cursor: pointer;
+}
+.user_logo:hover{
+   -moz-box-shadow: 0 0 10px #ccc;
+		-webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc; 
+    opacity: 0.5;
+    background-color: Black;
+z-index:10;
+
+}
+ @media  only screen and (max-width: 768px) {
+  .user_logo{
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 90px;
+  left: 40%;
+}
+}
+
+.comp_logo{
+   height:100px;
+   width:100px;
+   float: right;
+}
+  @media  only screen and (max-width: 768px) {
+ .comp_logo{
+   height:80px;
+   width:80px;
+}
+}
+
+.button-included[_ngcontent-c13]   input[_ngcontent-c13]{
+  padding: 0px;
+}
+
+input[type=text]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=url]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
+     border-bottom: 1px solid #4285F4; 
+     box-shadow: 0 1px 0 0 #4285F4; 
+}
+    #tag1 .ng2-tag-input[_ngcontent-c14]{
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.mat-form-field-underline{
+  background-color: #bdbdbd;
+}
+
+/* @media  only screen and (max-width: 768px) {
+ .part2_prev{
+  width: 50%;
+}
+}
+@media  only screen and (max-width: 768px) {
+ .part2_next{
+  width: 50%;
+}
+} */
+.mat-select-value{
+  color: #495057;
+}
+@media  only screen and (max-width: 768px) {
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #59698D;
+        background-color: white ;
+        /* color: #59698D ; */
+        border-radius: 50%;
+        padding: 22px 18px 15px 18px;
+        margin-top: -6px; }
+}
+      .hd_strt{
+        width: 50%;
+      }
+      .logo_resp{
+        width: 50%;
+      }
+      
+      @media  only screen and (max-width: 768px) {
+.your_head {
+       font-size: 1.2rem;
+}
+      }
+.custom-autocomplete__input[_ngcontent-c10]{  margin-bottom: 16px;
+}
+.example-container{
+  height: 50px;
+}
+  .logo_founder{
+  width: 14%;
+}
+@media  only screen and (max-width: 768px) {
+ .logo_founder{
+  width: 40%;
+}}
+
+@media  only screen and (max-width: 768px) {
+    .top-1 {
+   width: 50%;
+    }
+}
+
+.logo_company{
+  margin-top: 50px;
+  margin-left: 15px;
+}
+
+@media  only screen and (max-width: 768px) {
+  .logo_company{
+  margin-top: 50px;
+  margin-left: 0px;
+}
+}
+
+/* .c-btn[_ngcontent-c11]{
+  font-size: 16px !important;
+  color: #858b95 !important;
+  border:0px 0px 2px 0px #ccc !important; 
+} */
+.selected-list   .c-btn{
+  box-shadow:0px 0px 0px white !important;
+    padding: 10px 0px 10px 0px !important;
+}
+
+.c-btn{
+ border-top: 2px  #ccc !important; 
+ border-left: 2px  #ccc !important; 
+ border-right: 2px  #ccc !important; 
+   color: #858b95 !important;
+  font-size: 16px !important;
+
+}
+/* h5{
+  color: #184366;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+h5:hover{
+ color: white;
+ background: black;
+} */
+#logo_hint{
+ color: #184366;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+   position: absolute;
+  top: 50px;
+ align-self: center;
+}
+
+#logo_hint:hover{
+ color: white;
+ background: black;
+} 
+@media  only screen and (max-width: 768px) {
+  #logo_hint{
+ align-self: center;
+  }
+}
+#countdown{
+  color: #858b95;
+  font-size: 12px;
+}
+.custom-autocomplete[_ngcontent-c9]{
+  margin-bottom: 16px;
+}
+
+
+ .your-class::-webkit-input-placeholder {
+    color: #858b95;
+    
+}
+  .md-textarea::-webkit-input-placeholder{
+    color: #858b95;
+  }
+
+  .invalid_user{
+      background:url(../../assets/cross_icon.png) no-repeat 0 50%; 
+    padding-left:22px;
+    line-height:24px;
+    color:#ec3f41;
+  }
+  .valid_user {
+      background:url(../../assets/tick_icon.png) no-repeat 0 50%;  
+    padding-left:22px;
+    line-height:24px;
+    color:#3a7d34;
+}
+
+textarea.md-textarea{
+  min-height:4rem;
+}
+ @media (max-width: 640px) {
+ textarea.md-textarea{
+min-height:6rem;
+}}

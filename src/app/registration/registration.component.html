@@ -1,0 +1,128 @@
+<html>
+<title></title>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="pragma" content="no-cache" />
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=explicit&amp;onload=onloadCallback"></script>
+  <script>
+    // bootstrap the application once the reCAPTCHA api has loaded 
+    function onloadCallback() {
+      System.import('app').catch(function (err) { console.error(err); });
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css">
+
+</head>
+
+<body style="background-color: white">
+
+
+  <div class="container-fluid">
+    <div class="section_1_register">
+      <div class="col-xs-6 col-sm-6 col-md-6 top-1">
+        <div class="section1-img">
+          <img src="assets/logo.png" class="logo1" (click)="home()">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+
+        <div class="col-md-6 part1_registration">
+          <h2 class="register_heading">
+            {{userType}}
+          </h2>
+          <br>
+
+          <div style="padding-left: 15%;padding-right: 0%;">
+            <button type="button" (click)="signUpWith_LinkedIn('linkedin')" class="btn btn-blue linkedin" style="text-transform: none;font-weight: 550 ;font-size: 16px;">
+              <i class="fa fa-linkedin left"></i>&nbsp; &nbsp; Sign Up with LinkedIn</button>
+
+          </div>
+
+          <div class="or-seperator">
+            <b>OR</b>
+          </div>
+          <!-- <h4 style="text-align: center">Or</h4> -->
+          <div class="card" style="padding: 5% 10% 5% 10%">
+            <form #registerForm="ngForm">
+              <!-- <p class="h5 text-center mb-4" style="font-size: 25px;">Sign up</p> -->
+
+              <div class="md-form">
+                <i class="fa fa-user prefix blue-text"></i>
+                <input type="text" id="orangeForm-name" class="form-control" [(ngModel)]="model.name" name="name" required>
+                <label for="orangeForm-name">Name</label>
+              </div>
+              <div class="md-form">
+                <i class="fa fa-envelope prefix blue-text"></i>
+                <input type="text" id="orangeForm-email" class="form-control" [(ngModel)]="model.email" #email="ngModel" name="email" email>
+                <!-- <p *ngIf="email.errors?.email">error message</p> -->
+                <label for="orangeForm-email">Email</label>
+
+
+              </div>
+              <div class="md-form">
+                <i class="fa fa-phone prefix blue-text" aria-hidden="true"></i>
+                <input type="number" id="orangeForm-phone" class="form-control" [(ngModel)]="model.phone" name="phone">
+                <label for="orangeForm-phone">Phone &nbsp;(Optional)</label>
+              </div>
+
+              <div class="md-form">
+                <i class="fa fa-lock prefix blue-text"></i>
+                <input type="password" id="orangeForm-pass" class="form-control" style="margin-bottom: 0px;" [(ngModel)]="model.password"
+                  name="password" minlength="8" required>
+                <label for="orangeForm-pass">Password</label>
+                <div class="text1">
+                  <small id="length" class="invalid">
+                    Be at least
+                    <strong>8 characters</strong>
+                  </small>
+                  <small id="letter" class="invalid">
+                    <strong>one letter</strong>
+                  </small>
+                  <small id="capital" class="invalid">
+                    <strong>one capital letter</strong>
+                  </small>
+                  <small id="number" class="invalid">
+                    <strong>one number</strong>
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-xs-10 captcha">
+                <!-- <re-captcha (resolved)="resolved($event)"   theme= "light" siteKey="6LfgOTsUAAAAADqcLAUm9DBNi5CymSoEs7O5DKdP" ></re-captcha> -->
+                <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LfgOTsUAAAAADqcLAUm9DBNi5CymSoEs7O5DKdP"></re-captcha>
+
+              </div>
+              <div class="text-center">
+                <button class="btn  indigo darken-4" (click)="submit_register()" value="Submit" [disabled]="!registerForm.form.valid">Sign up</button>
+              </div>
+              <br>
+              <p class="terms_para">By signing up, I agree to The Door's
+                <span>
+                  <button (click)="terms()" class="term_button">Terms of Use</button> and
+                  <button (click)="privacy()" class="term_button">Privacy Policy</button>
+                </span>
+              </p>
+              <p style="text-align: center">Already on the Door?
+                <button (click)="login()" class="term_button">Log in</button>
+              </p>
+
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<ngx-loading [show]="loading" [config]="{
+        backdropBackgroundColour: 'rgba(rgba(75, 255, 200, 0.3))', fullScreenBackdrop: true, backdropBorderRadius: '10px',
+        primaryColour: '#4bffc8', secondaryColour: '#4bffc8', tertiaryColour: '#4bffc8' }"></ngx-loading>
+   

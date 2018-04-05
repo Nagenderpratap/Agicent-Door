@@ -1,0 +1,357 @@
+<meta http-equiv="pragma" content="no-cache" />
+
+<div class="header" style="background-color: white">
+  <div class="container">
+
+    <div class="section1-img">
+      <img src="assets/logo.png" class="logo1" (click)="goToHome()">
+    </div>
+    <div class="row part1_searchView">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <h1 class="searchTxt">Search</h1>
+
+        <!-- Search form -->
+        <form #searchForm="ngForm">
+          <div class="row">
+            <div class="col-9  col-md-9  demo0">
+              <input type="text" name="search" id="searchBox" placeholder="Search by name or keyword..."
+               class="search_area" [(ngModel)]="searchText" required>
+            </div>
+            <div class="col-3  col-md-3">
+              <button class="search_button btn" (click)="searchByKeyword()" value="Submit" [disabled]="!searchForm.form.valid">Search</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Filter content -->
+        <div class="d-flex flex-row top2">
+          <div class="p-3">
+            <h6>Filter by</h6>
+          </div>
+          <div class="p-3">
+            <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              class="filter_button" id="stage">Stage</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item dropdown_fonts stg" (click)="stageClicked(0)">Idea</a>
+              <a class="dropdown-item dropdown_fonts stg" (click)="stageClicked(1)">Prototype/MVP</a>
+              <a class="dropdown-item dropdown_fonts stg" (click)="stageClicked(2)">Live - No traction</a>
+              <a class="dropdown-item dropdown_fonts stg" (click)="stageClicked(3)">Revenue traction</a>
+              <a class="dropdown-item dropdown_fonts stg" (click)="stageClicked(4)">User traction</a>
+            </div>
+          </div>
+
+          <div class="p-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              class="filter_button"id="sector">Sector</button>
+            <div class="dropdown-menu dropdown-primary force-scroll ">
+              <!-- <input type="text" name="search" placeholder="Search sectors..." class="search_sector" name="searchSector"> -->
+              <!-- <a class="dropdown-item dropdown_fonts">Top Categories</a> -->
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(0)">Artificial Intelligence</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(1)">AdTech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(2)">Automotive</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(3)">B2B</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(4)">B2C</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(5)">Beauty</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(6)">Big Data</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(7)">Biometrics</a>
+
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(8)">Blockchain</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(9)">CleanTech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(10)">Consumer Lifestyle</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(11)">Cryptocurrency</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(12)">Drones</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(13)">E-commerce</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(14)">EdTech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(15)">Enterprise Software</a>
+
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(16)">Fashion</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(17)">GovTech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(18)">HealthTech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(19)">Industrial Tech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(20)">Internet of Things</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(21)">Fintech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(22)">Food Analytics and Tech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(23)">Fraud Detection Software</a>
+
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(24)">LegalTech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(25)">LoveTech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(26)">Retail</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(27)">Robotics</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(28)">Sharing Economy</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(29)">Social Enterprise</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(30)">UrbanTech</a>
+              <a class="dropdown-item dropdown_fonts sect" (click)="sectorClicked(31)">Virtual Reality</a>
+
+              <a class="dropdown-item dropdown_fonts" (click)="sectorClicked(32)">Other</a>
+            </div>
+          </div>
+
+          <div class="p-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              class="filter_button" id="location_button">Location</button>
+            <div class="dropdown-menu">
+              <div class="demo">
+                <!-- <input type="text" name="search" placeholder="Search locations..." class="search_location" name="searchLocation"> -->
+                <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback($event)" style=" padding:0px"
+                  id="location"></ng4geo-autocomplete>
+              </div>
+              <a class="dropdown-item dropdown_fonts">Top Locations</a>
+              <a class="dropdown-item dropdown_fonts" (click)="locationClicked(0)">United States</a>
+              <a class="dropdown-item dropdown_fonts" (click)="locationClicked(1)">Silicon Valley</a>
+              <a class="dropdown-item dropdown_fonts" (click)="locationClicked(2)">New York</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row  section3">
+          <div class="col-6 col-md-2" *ngIf="!firstTime">
+            <h6 id="startup_text" (click)="startUpClicked()">Startups
+              <span id="startup_count">{{startup_count}}</span>
+            </h6>
+          </div>
+          <div class="col-6  col-md-2" *ngIf="!firstTime">
+            <h6 id="founder_text" (click)="founderClicked()">Founders
+              <span id="founder_count">{{founders_count}}</span>
+            </h6>
+          </div>
+          <div class="col-6 col-md-2" *ngIf="!firstTime">
+            <h6 id="investor_text" (click)="investorClicked()">Investors
+              <span id="investor_count">{{investors_count}}</span>
+            </h6>
+          </div>
+          <div class="col-6 col-md-2" *ngIf="!firstTime">
+            <h6 id="organization_text" (click)="organizationClicked()">Organizations
+              <span id="organization_count">{{organization_count}}</span>
+            </h6>
+          </div>
+          <div class="col-1 col-md-1" *ngIf="!firstTime"></div>
+          <div class="col-11 col-md-3" *ngIf="!firstTime">
+            <h6 id="collapse_expand" (click)='expandCollapse()' style="float: right" class="expand">{{expand_collapse}}</h6>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12" *ngIf="!firstTime">
+            <hr>
+          </div>
+
+        </div>
+
+
+        <!-- StartUp Panel -->
+        <div id="panel-group-startup">
+          <div class="panel panel-default" *ngFor="let startup of startupsData; let startupClicked = index">
+            <div class="panel-heading">
+
+              <div class="panel-title col-xs-12 col-12 col-md-12" style="padding: 0px">
+
+                <div class="row">
+                  <div class="col-2 col-md-1">
+                    <img id="startup_image_url" type="file" [src]="startup.imageUrl" class="rounded-circle  founder_company_logo" style="border: none">
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <h6 class="foundr_txt marg">{{startup.startupName}}</h6>
+                    <h6 class="foundr_txt marg">
+                      <span id="item_desc">{{startup.location}}</span>
+                    </h6>
+                  </div>
+                  <div class="col-3 col-md-3">
+                    <h6 id="startup_view_profile" (click)="currentStartupClicked(startupClicked)" style="float: right">View Profiles</h6>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="collapse1" class="panel-collapse" [class.collapse]='isExpanded == 0'>
+              <div class="panel-body" style="margin-top: 10px">
+
+                <div class="col-xs-12 col-sm-12 col-md-12 expandable_bg">
+                  <h6 class="values_label">Founders /
+                    <span id="item_desc"> {{startup.foundersName}}</span>
+                  </h6>
+                  <h6 class="values_label">Sectors /
+                    <span id="item_desc"> {{startup.sectors}}</span>
+                  </h6>
+                  <h6 class="values_label">Stage /
+                    <span id="item_desc"> {{startup.stage}}</span>
+                  </h6>
+                  <h6 class="values_label">Founding Round /
+                    <span id="item_desc"> {{startup.foundingRound}}</span>
+                  </h6>
+                  <h6 class="values_label">Investors /
+                    <span id="item_desc"> {{startup.investors}}</span>
+                  </h6>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 0px">
+              <hr>
+            </div>
+          </div>
+        </div>
+        <!-- End StartUp Panel -->
+
+        <!-- Investor Panel -->
+        <div id="panel-group-investor">
+          <div class="panel panel-default" *ngFor="let investor of investorsData; let investorClicked = index">
+            <div class="panel-heading">
+
+              <div class="panel-title col-xs-12 col-12 col-md-12" style="padding: 0px">
+
+                <div class="row">
+                  <div class="col-2 col-md-1">
+                    <img id="startup_image_url" type="file" [src]="investor.imageUrl" class="rounded-circle  founder_company_logo" style="border: none">
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <h6 class="foundr_txt marg">{{investor.investorName}}</h6>
+                    <h6 class="foundr_txt marg">
+                      <span id="item_desc">{{investor.title}}, {{investor.organazitionName}}</span>
+                    </h6>
+                  </div>
+                  <div class="col-3 col-md-3">
+                    <h6 id="investor_view_profile" (click)="currentInvestorClicked(investorClicked)" style="float: right">View Profiles</h6>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="collapse1" class="panel-collapse" [class.collapse]='isExpanded == 0'>
+              <div class="panel-body" style="margin-top: 10px">
+
+                <div class="col-xs-12 col-sm-12 col-md-12 expandable_bg">
+                  <h6 class="values_label">Sectors /
+                    <span id="item_desc"> {{investor.sector}}</span>
+                  </h6>
+                  <h6 class="values_label">About /
+                    <span id="item_desc"> {{investor.about}}</span>
+                  </h6>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 0px">
+              <hr>
+            </div>
+          </div>
+        </div>
+        <!-- End Investor Panel -->
+
+        <!-- Organization Panel -->
+        <div id="panel-group-organization">
+          <div class="panel panel-default" *ngFor="let organization of organizationsData; let organizationClicked = index">
+            <div class="panel-heading">
+
+              <div class="panel-title col-xs-12 col-12 col-md-12" style="padding: 0px">
+
+                <div class="row">
+                  <div class="col-2 col-md-1">
+                    <img id="startup_image_url" type="file" [src]="organization.imageUrl" class="rounded-circle  founder_company_logo" style="border: none">
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <h6 class="foundr_txt marg">{{organization.organizationName}}</h6>
+                    <h6 class="foundr_txt marg">
+                      <span id="item_desc">{{organization.location}}</span>
+                    </h6>
+                  </div>
+                  <div class="col-3 col-md-3">
+                    <h6 id="organization_view_profile" (click)="currentOrganizationClicked(organizationClicked)" style="float: right">View Profiles</h6>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="collapse1" class="panel-collapse" [class.collapse]='isExpanded == 0'>
+              <div class="panel-body" style="margin-top: 10px">
+
+                <div class="col-xs-12 col-sm-12 col-md-12 expandable_bg">
+                  <h6 class="values_label">Investors /
+                    <span id="item_desc"> {{organization.investors}}</span>
+                  </h6>
+                  <h6 class="values_label">Sectors /
+                    <span id="item_desc"> {{organization.sectors}}</span>
+                  </h6>
+                  <h6 class="values_label">Check Size /
+                    <span id="item_desc"> {{organization.minCheckSize}}-{{organization.maxCheckSize}}</span>
+                  </h6>
+                  <h6 class="values_label">Stage /
+                    <span id="item_desc"> {{organization.stage}}</span>
+                  </h6>
+                  <h6 class="values_label">Min Traction /
+                    <span id="item_desc"> {{organization.minTraction}}</span>
+                  </h6>
+                  <h6 class="values_label">Geography /
+                    <span id="item_desc"> {{organization.geography}}</span>
+                  </h6>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 0px">
+              <hr>
+            </div>
+          </div>
+        </div>
+        <!-- End Organization Panel -->
+
+        <!-- Founder Panel -->
+        <div id="panel-group-founder">
+          <div class="panel panel-default" *ngFor="let founder of foundersData; let founderClicked = index">
+            <div class="panel-heading">
+
+              <div class="panel-title col-xs-12 col-12 col-md-12" style="padding: 0px">
+
+                <div class="row">
+                  <div class="col-2 col-md-1">
+                    <img id="startup_image_url" type="file" [src]="founder.imageUrl" class="rounded-circle  founder_company_logo" style="border: none">
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <h6 class="foundr_txt marg">{{founder.founderName}}</h6>
+                    <h6 class="foundr_txt marg">
+                      <span id="item_desc">{{founder.title}}, {{founder.startupName}}</span>
+                    </h6>
+                  </div>
+                  <div class="col-3 col-md-3">
+                    <h6 id="founder_view_profile" (click)="currentFounderClicked(founderClicked)" style="float: right">View Profiles</h6>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="collapse1" class="panel-collapse" [class.collapse]='isExpanded == 0'>
+              <div class="panel-body" style="margin-top: 10px">
+
+                <div class="col-xs-12 col-sm-12 col-md-12 expandable_bg">
+                  <h6 class="values_label">Location /
+                    <span id="item_desc"> {{founder.location}}</span>
+                  </h6>
+                  <h6 class="values_label">About /
+                    <span id="item_desc"> {{founder.about}}</span>
+                  </h6>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 0px">
+              <hr>
+            </div>
+          </div>
+        </div>
+        <!-- End Founder Panel -->
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-loading [show]="loading" [config]="{
+        backdropBackgroundColour: 'rgba(rgba(75, 255, 200, 0.3))', fullScreenBackdrop: true, backdropBorderRadius: '10px',
+        primaryColour: '#4bffc8', secondaryColour: '#4bffc8', tertiaryColour: '#4bffc8' }"></ngx-loading>
+   

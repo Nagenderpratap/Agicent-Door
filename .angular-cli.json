@@ -19,9 +19,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+       "../node_modules/mdbootstrap/css/bootstrap.min.css",
+       "../node_modules/mdbootstrap/css/mdb.min.css",
+        "styles.css","../node_modules/angular2-busy/build/style/busy.css","../node_modules/ng2-toastr/bundles/ng2-toastr.min.css"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/mdbootstrap/js/jquery-3.2.1.min.js",
+        "../node_modules/mdbootstrap/js/popper.min.js",
+        "../node_modules/mdbootstrap/js/bootstrap.min.js",
+        "../node_modules/mdbootstrap/js/mdb.min.js","../node_modules/jquery/dist/jquery.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

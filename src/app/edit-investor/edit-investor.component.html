@@ -1,0 +1,550 @@
+<meta http-equiv="pragma" content="no-cache" />
+<div class="container-fluid" style="background-color: white">
+  <div class="header">
+    <div class="logo_company">
+      <div class="col-xs-6 col-sm-6 col-md-6 top-1">
+        <div class="section1-img">
+          <img src="assets/logo.png" class="logo_founder" routerLink="/" routerLinkActive="active">
+        </div>
+      </div>
+    </div>
+    <div class="section_1">
+
+      <div class="row">
+
+        <!-- <button class="startup_button2 button.raised" data-toggle="modal" data-target="#exampleModal5">Join Existing Organization</button> -->
+      </div>
+
+      <h2 class="text-center font-bold pt-4 pb-5 ">
+        <strong class="heading">Edit Investor Profile </strong>
+      </h2>
+      <div class="icons">
+        <div class="steps-form-2">
+
+          <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+            <div class="steps-step-2">
+              <a href="#step-4" type="button" class="step-4  not-active btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip"
+                data-placement="top" title="About You"></a>
+              <!-- <h6> Personal Details</h6> -->
+            </div>
+            <!-- <div class="steps-step-2">
+            <a href="#step-5" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Personal Data"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        </div> -->
+            <!-- <div class="steps-step-2">
+              <a href="#step-6" class="not-active" type="button" class="step-6 not-active btn-circle-2 waves-effect" data-toggle="tooltip"
+                data-placement="top" title="Your Startup"></a>
+              <h6> Your Startup</h6>
+            </div> -->
+            <div class="steps-step-2">
+              <a href="#step-7" type="button" class="step-7 not-active btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top"
+                title="Others"></a>
+              <!-- <h6>Organization Details</h6> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="icon-text">
+        <div class="row">
+          <div class="col-md-6" style="width:50% ">
+            <h6 style="float: left;margin-bottom: 10% "> Personal Details</h6>
+          </div>
+          <div class="col-md-6" style="width:50% ">
+            <h6 style="float: right;margin-bottom: 10%">Organization Details</h6>
+          </div>
+        </div>
+      </div>
+
+      <form>
+        <div class="row setup-content-2" id="step-4">
+          <div class="col-md-12">
+            <div class="card">
+
+              <img id="picHero" type="file" [src]="heroImageUrl" class="hero_button">
+              <input type="file" [src]="imageSrc" id="fileInput" (change)="readUrl($event)" accept="image/*" style="display: none">
+              <h5 id="logo_hint" data-toggle="modal" data-target="#exampleModal">+ Add Hero image</h5>
+
+              <img type="file" [src]="heroImageUrl4" id="picLogo" class="rounded-circle z-depth-1-half avatar-pic  user_logo " data-toggle="modal"
+                data-target="#exampleModal2">
+              <input type="file" id="fileInput4" (change)="readUrl4($event)" accept="image/*" style="display: none">
+
+
+              <div class="card_part2" style="padding: 4% 10% 10% 10%">
+                <h3 class="font-bold pl-0 my-4">
+                  <strong class="heading">Personal Details</strong>
+                </h3>
+                <div class="row">
+                  <div class="col-sm-12 ">
+
+                    <div class="form-group">
+                      <label class="label">Title*</label>
+                      <input id="title" placeholder="General Partner" type="text" [(ngModel)]="title" name="title" required="required" class="form-control ">
+                    </div>
+                  </div>
+                  <div class="col-sm-12 ">
+
+                    <div class="form-group">
+                      <label class="label">Username*</label>
+                      <input id="username" placeholder="thedoor.co/username" autocomplete="off" [(ngModel)]="username" name="username" (blur)="check_username()"
+                        type="text" required="required" class="form-control" disabled="disabled" readonly="readonly">
+                    </div>
+                  </div>
+                  <div class="col-sm-12 ">
+
+                    <div class="form-group">
+                      <div class="demo">
+                        <label class="label">Location*</label>
+                        <!-- <input id="yourUsername-2" placeholder="" type="text" required="required" class="form-control "> -->
+                        <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback($event)" style=" padding:0px"></ng4geo-autocomplete>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 ">
+                    <div class="form-group" style="margin-bottom: 10px">
+                      <label class="label">Brief bio*</label>
+
+                      <textarea #text (keyup)="field = text.value" type="text" [(ngModel)]="investorBio" name="field" maxlength="160" style="padding:1.0rem 0;color:#4b4f58 "
+                        placeholder="Introduce yourself in 160 characters or less." id="bio" class="md-textarea"></textarea>
+
+                      <label id="countdown"> {{field | countdown:160}} characters remaining</label>
+
+
+                    </div>
+
+                  </div>
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Personal url</label>
+                      <input id="yourUsername-2" placeholder="www.thedoor.co" [(ngModel)]="personal_url" name="personal_url" type="text" required="required"
+                        class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Tips for founders</label>
+                      <input id="yourUsername-2" [(ngModel)]="tip_founder" name="tip_founder" placeholder="Please provide some tips for founders"
+                        type="text" required="required" class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Sectors I’m most excited about*</label>
+                      <div class="example-container">
+                        <div class="demo1">
+                          <!-- <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" name="selectedItems" [settings]="dropdownSettings"
+                          (onOpen1)="onOpen1($event)"> -->
+                          <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" name="selectedItems" [settings]="dropdownSettings"
+                            (onOpen)="onOpen1($event)" (onSelectAll)="onSelectAll_most($event)" (onDeSelectAll)="onDeSelectAll_most($event)">
+                          </angular2-multiselect>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Sectors I’m least excited about*</label>
+                      <div class="example-container">
+                        <div class="demo2">
+                          <!-- <angular2-multiselect [data]="dropdownList2" [(ngModel)]="selectedItems2" name="selectedItems2" [settings]="dropdownSettings2"
+                      (onOpen2)="onOpen2($event)"> -->
+                          <angular2-multiselect [data]="dropdownList2" [(ngModel)]="selectedItems2" name="selectedItems2" [settings]="dropdownSettings2"
+                            (onOpen)="onOpen2($event)" (onSelectAll)="onSelectAll_least($event)" (onDeSelectAll)="onDeSelectAll_least($event)">
+                          </angular2-multiselect>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 " id="next">
+                    <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" id="part1-next" type="button" (click)="next_button()">Next</button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="row setup-content-2" id="step-7">
+          <div class="col-md-12">
+
+            <div class="card">
+
+              <img id="picHero2" type="file" [src]="heroImageUrl3" class="hero_button">
+              <input type="file" [src]="imageSrc3" id="fileInput3" (change)="readUrl3($event)" accept="image/*" style="display: none">
+              <h5 class="logo_hint" data-toggle="modal" data-target="#exampleModal3">+ Add Hero image</h5>
+
+              <img type="file" [src]="heroImageUrl2" id="picLogo2" class="rounded-circle z-depth-1-half avatar-pic  user_logo " data-toggle="modal"
+                data-target="#exampleModal4">
+              <input type="file" [src]="imageSrc2" id="fileInput2" (change)="readUrl2($event)" accept="image/*" style="display: none">
+
+              <div class="card_part2" style="padding: 10% 10% 10% 10%">
+                <h3 class="font-bold pl-0 my-4">
+                  <strong class="heading"></strong>
+                </h3>
+
+                <div class="row">
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Fund name*</label>
+                      <input id="fundname" placeholder="Enter fund name" [(ngModel)]="fundname" name="fundname" type="text" required="required"
+                        class="form-control ">
+                    </div>
+                  </div>
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Organization url*</label>
+                      <input id="organization_url" placeholder="www.thedoor.co" [(ngModel)]="organization_url" name="organization_url" type="text"
+                        required="required" class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">About*</label>
+                      <input id="about" placeholder="About your Organization" [(ngModel)]="about" name="about" type="text" required="required"
+                        class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <div class="demo_location">
+                        <label class="label">Location*</label>
+
+                        <ng4geo-autocomplete [userSettings]="userSettingsOrg" (componentCallback)="autoCompleteCallback2($event)" style=" padding:0px"></ng4geo-autocomplete>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Fund category*</label>
+                      <div class="example-container fund_cat">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="fund_item" name="fund_item" id="fund_category">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let fund of funds" [value]="fund.value">
+                              {{ fund.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Fund size</label>
+                      <input id="yourUsername-2" placeholder="$30M or $100M" [(ngModel)]="fund_size" name="fund_size" type="text" required="required"
+                        class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label"> Regions you invest in</label>
+                      <div class="example-container">
+                        <angular2-multiselect [data]="dropdownList4" [(ngModel)]="selectedItems4" name="selectedItems4" [settings]="dropdownSettings4"
+                          (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll_region($event)"
+                          (onDeSelectAll)="onDeSelectAll_region($event)">
+                        </angular2-multiselect>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Lead</label>
+                      <div class="example-container">
+                        <mat-form-field>
+                          <mat-select [(ngModel)]="lead_item" name="lead_item">
+                            <mat-option value="" disabled selected hidden>Select</mat-option>
+                            <mat-option *ngFor="let lead of leads" [value]="lead.value">
+                              {{ lead.viewValue }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Which sectors do you normally invest in?*</label>
+                      <div class="example-container">
+                        <div class="demo3">
+                          <angular2-multiselect [data]="dropdownList3" [(ngModel)]="selectedItems3" name="selectedItems3" [settings]="dropdownSettings3"
+                            (onOpen)="onOpen3($event)" (onSelectAll)="onSelectAll_invest($event)" (onDeSelectAll)="onDeSelectAll_invest($event)">
+                          </angular2-multiselect>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Which round do you invest in?*</label>
+                      <div class="example-container">
+                        <div class="demo4">
+                          <angular2-multiselect [data]="dropdownList5" [(ngModel)]="selectedItems5" id="round" name="selectedItems5" [settings]="dropdownSettings5"
+                            (onSelectAll)="onSelectAll_round($event)" (onDeSelectAll)="onDeSelectAll_round($event)" (onOpen)="onOpen4($event)">
+                          </angular2-multiselect>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Minimum check size*</label>
+                      <input id="minimum_check" placeholder="$100K" [(ngModel)]="min_check" name="min_check" type="text" required="required" class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Maximum check size*</label>
+                      <input id="max_check" placeholder="$2M" [(ngModel)]="max_check" name="max_check" type="text" required="required" class="form-control ">
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Require Traction:</label> &nbsp;
+                      <mat-radio-group [(ngModel)]="align" name="align">
+                        <mat-radio-button value="Y" (click)="yes_align()">Yes</mat-radio-button>
+                        <mat-radio-button value="N" (click)="no_align()">No</mat-radio-button>
+                      </mat-radio-group>
+
+                      <div *ngIf="align2">
+                        <div class="col-sm-12 " style=" padding-left: 0px;  padding-right: 0px">
+                          <div class="form-group">
+                            <div class="example-container">
+                              <mat-form-field>
+                                <mat-select [(ngModel)]="traction_item" name="traction_item">
+                                  <mat-option value="" disabled selected hidden>Select traction range</mat-option>
+                                  <mat-option *ngFor="let traction of tractions" [value]="traction.value">
+                                    {{ traction.viewValue }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">Past investments</label>
+                      <input auto-complete [source]="pastInvestments_api" max-num-list="4" id="past_investment" placeholder="Please enter your past investments"
+                        [(ngModel)]="past_investment" name="past_investment" type="text" required="required" class="form-control ">
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-12 ">
+                    <div class="form-group">
+                      <label class="label">No. of Exits</label>
+                      <input id="yourUsername-2" [(ngModel)]="no_exits" name="no_exits" placeholder="1 or 2 or 10" type="text" required="required"
+                        class="form-control ">
+                    </div>
+
+                  </div>
+
+                </div>
+                <!-- <h2 class="text-center font-bold my-4">Registration completed!</h2> -->
+                <div class="row" style="margin-top: 20px">
+                  <div class="col-sm-12 col-md-6 ">
+                    <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" id="part3-prev" type="button" (click)="previous_button()">Previous</button>
+                  </div>
+                  <div class="col-sm-12 col-md-6 ">
+                    <button class="btn btn-success btn-rounded float-right" (click)="submit_investor()" id="part3-next" type="submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <img-cropper #cropper [image]="data" [settings]="cropperSettings" (change)="setImage($event)"></img-cropper>
+        <br>
+        <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="set_hero_image()">Save Changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal2 -->
+<div class="modal fade" id="exampleModal2" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <img-cropper #cropper2 [image]="data2" class="rounded-circle" [settings]="cropperSettings2" (change)="setImage2($event)"></img-cropper>
+        <br>
+
+        <img class="rounded-circle" [src]="data2.image" [width]="cropperSettings2.croppedWidth" [height]="cropperSettings2.croppedHeight">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="set_logo_image()">Save Changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal3 -->
+<div class="modal fade" id="exampleModal3" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <img-cropper #cropper3 [image]="data3" class="rounded-circle" [settings]="cropperSettings" (change)="setImage3($event)"></img-cropper>
+        <br>
+
+        <img [src]="data3.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="set_hero_image2()">Save Changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal4 -->
+<div class="modal fade" id="exampleModal4" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <img-cropper #cropper4 [image]="data4" class="rounded-circle" [settings]="cropperSettings2" (change)="setImage4($event)"></img-cropper>
+        <br>
+
+        <img class="rounded-circle" [src]="data4.image" [width]="cropperSettings2.croppedWidth" [height]="cropperSettings2.croppedHeight">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="set_logo_image2()">Save Changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal5 -->
+<div class="modal" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Join existing organization</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #popForm="ngForm">
+        <div class="modal-body">
+          <input auto-complete [(ngModel)]="existing_organization" [source]="exitOrganization_api" max-num-list="4" id="investment"
+            name="pastInvestments" placeholder="Please enter Organization name here" type="text" class="form-control" required="true">
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" (click)="nonAngelInvestor()" class="btn btn-secondary" data-dismiss="modal">No</button> -->
+          <button type="button" (click)="joinOrganization()" [disabled]="!popForm.form.valid" class="btn btn-primary " data-dismiss="modal">Join</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Existing starup -->
+<div class="modal" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+ <div class="modal-dialog" role="document">
+ <div class="modal-content">
+ <div class="modal-header">
+ <h5 class="modal-title" id="exampleModalLabel">The Door</h5>
+ <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ <span aria-hidden="true">&times;</span>
+ </button> -->
+ </div>
+ <div class="modal-body">
+ Sorry, You're not allowed to edit Organization profile as you've joined this.
+ </div>
+ <div class="modal-footer">
+ <button type="button" (click)="gotoProfileActivity()" class="btn btn-primary" data-dismiss="modal">Ok</button>
+ </div>
+ </div>
+ </div>
+</div>
+<ngx-loading [show]="loading" [config]="{
+        backdropBackgroundColour: 'rgba(rgba(75, 255, 200, 0.3))', fullScreenBackdrop: true, backdropBorderRadius: '10px',
+        primaryColour: '#4bffc8', secondaryColour: '#4bffc8', tertiaryColour: '#4bffc8' }"></ngx-loading>
+   

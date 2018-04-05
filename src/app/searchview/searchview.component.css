@@ -1,0 +1,271 @@
+.part1_searchView{
+    padding-top: 7%;
+    padding-bottom: 7%;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+@media  only screen and (max-width: 768px) {
+    .part1_searchView{
+    padding-top: 20%;
+    padding-bottom: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+}
+.searchTxt{
+        font-family: 'Open Sans', sans-serif;
+    color: #183466;
+     letter-spacing: 1px;
+}
+   
+.demo0 .search_area{
+    margin-top: 4%;
+    background-color: #f0f1fe;
+    padding-left: 15px;
+    border: none;
+    height: 50px;
+    font-size: 18px;
+    border-bottom:none;
+}
+
+ @media  only screen and (max-width: 768px) {
+  .demo0  .search_area{
+
+ font-size: 14px;
+  height:40px ;
+  }
+  }
+
+
+.search_button{
+    margin-top: 13%;
+     font-family: 'Open Sans', sans-serif;
+ text-align: center;
+  width: 145px; 
+ height:50px ;
+  cursor: pointer;
+ font-size: 17px;
+ border:none  ;
+ border-radius:7px ;
+ background-color:#183466;
+ color: #ffffff;
+ letter-spacing: 1px;
+ float: right;
+ font-size: 18px;
+}
+
+ @media  only screen and (max-width: 768px) {
+   .search_button{
+ width: 62px; 
+ font-size: 13px;
+  height:40px ;
+  }
+  }
+
+.top2{
+    margin-top: 5%;
+}
+.filter_button{
+     font-family: 'Open Sans', sans-serif;
+     text-align: center;
+     cursor: pointer;
+     font-size: 13px;
+     padding: 2%;
+     border:none  ;
+     border-radius:3px ;
+     background-color:#ffffff;
+     color: #183466 ;
+     letter-spacing: 1px;
+      width: 100px;
+      border: #183466 2px solid;
+
+}
+     @media  only screen and (max-width: 768px) {
+   .filter_button{
+ width:59px; 
+ font-size: 12px;
+ 
+  }
+  }
+
+    .btn{
+      
+        text-transform:none;
+    }
+    h3{
+           color: #183466; 
+    }
+
+ .section3{
+     margin-top: 8%;
+ }   
+
+ h5{
+   color: #183466; 
+   font-weight: 400;  
+ }
+h6{
+   color: #183466; 
+   font-weight: 400;  
+   margin-top: 6%;
+   font-size: 13px;
+ }
+#startup_count{
+     color: grey;   
+     padding-left: 0px;
+}
+#founder_count{
+    color: grey;   
+    padding-left: 0px;
+}
+#investor_count{
+    color: grey;   
+    padding-left: 0px;
+}
+#organization_count{
+    color: grey;   
+    padding-left: 0px;
+}
+
+ #expand {
+  content: "Expand All";
+  cursor: pointer;
+}
+
+  #collapse {
+  content: "Collapse All";
+}  
+
+.foundr_txt{
+    color: #183466;
+    font-weight: 600;
+    margin-top: 0px;
+  }
+
+  .founder_company_logo{
+    height: 40px;
+    width: 40px;
+    background-color: #183466;
+    margin-right: 10px;
+    margin-left: 0px;
+  }
+
+  .values_label{
+
+    color: #183466;
+    font-weight: 600;
+    margin: 0px;
+
+    
+  }
+
+  #item_desc{
+
+    font-weight: 400;
+    
+  }
+
+
+
+  .expandable_bg{
+
+    background-color: #F7FAFF;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    
+  }
+
+ #startup_text{
+ cursor: pointer;
+ 
+ }
+ #founder_text{
+  cursor: pointer;
+  
+ }
+#investor_text{
+cursor: pointer;
+
+}
+#organization_text{           
+cursor: pointer;
+
+}
+#collapse_expand{           
+cursor: pointer;
+}
+
+#startup_view_profile{           
+cursor: pointer;
+}
+#investor_view_profile{           
+cursor: pointer;
+}
+#organization_view_profile{           
+cursor: pointer;
+}
+#founder_view_profile{           
+cursor: pointer;
+}
+
+.dropdown_fonts{
+
+    font-size: 13px;
+    padding: 4%;
+    color: #183466 ;
+    letter-spacing: 1px;
+}
+
+.search_sector{
+    margin: 4%;
+    background-color: #f0f1fe;
+    border: none;
+    height: 25px;
+    font-size: 12px;
+    width: 88%;
+    border-bottom:none;
+    padding: 2%;
+}
+.search_location{
+    margin: 4%;
+    background-color: #f0f1fe;
+    border: none;
+    height: 25px;
+    font-size: 12px;
+    width: 88%;
+    border-bottom:none;
+    padding: 2%;
+}
+
+.logo1{
+    cursor: pointer;
+    width: 8.5%;
+    margin-top: 3% 
+    
+  }
+  
+  @media  only screen and (max-width: 768px) and (min-width: 500px){
+  .logo1{
+    width: 40%;
+  }
+  }
+  @media  only screen and (max-width: 500px) {
+   .logo1{
+    width: 25%;
+  }
+  }
+
+.force-scroll {
+ overflow-y: scroll;
+ height: 200px;
+ }
+ 
+ .demo #search_places
+  { 
+/* border: none !important; */
+width: 90%;
+height: 20px;
+font-size: 15px;
+}
